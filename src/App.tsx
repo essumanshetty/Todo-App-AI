@@ -148,7 +148,7 @@ function App() {
               {todos.map(todo => (
                 <Box key={todo.id} sx={{ mb: 2 }}>
                   <Paper elevation={2}>
-                    <ListItem>
+                    <ListItem sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                       {editingId === todo.id ? (
                         <TextField
                           fullWidth
@@ -171,24 +171,28 @@ function App() {
                           }}
                         />
                       )}
-                      <ListItemSecondaryAction>
-                        <IconButton
-                          edge="end"
-                          aria-label="complete"
-                          onClick={() => handleToggleComplete(todo.id)}
-                          color="primary"
-                        >
-                          <CheckCircleOutlineIcon />
-                        </IconButton>
-                        <IconButton 
-                          edge="end" 
-                          aria-label="delete" 
-                          onClick={() => handleDelete(todo.id)}
-                          color="secondary"
-                        >
-                          <DeleteIcon />
-                        </IconButton>
-                      </ListItemSecondaryAction>
+                      <Box sx={{ display: 'flex', gap: 1 }}>
+                        <Tooltip title="Mark as completed">
+                          <IconButton
+                            edge="end"
+                            aria-label="complete"
+                            onClick={() => handleToggleComplete(todo.id)}
+                            color="primary"
+                          >
+                            <CheckCircleOutlineIcon />
+                          </IconButton>
+                        </Tooltip>
+                        <Tooltip title="Delete" arrow>
+                          <IconButton 
+                            edge="end" 
+                            aria-label="delete" 
+                            onClick={() => handleDelete(todo.id)}
+                            color="secondary"
+                          >
+                            <DeleteIcon />
+                          </IconButton>
+                        </Tooltip>
+                      </Box>
                     </ListItem>
                   </Paper>
                 </Box>
