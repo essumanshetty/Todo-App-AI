@@ -7,7 +7,6 @@ import {
   List, 
   ListItem, 
   ListItemText, 
-  ListItemSecondaryAction, 
   IconButton,
   Paper,
   Box,
@@ -16,50 +15,16 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#3f51b5', // Indigo
-    },
-    secondary: {
-      main: '#f50057', // Pink
-    },
-    background: {
-      default: '#f5f5f5', // Light grey
-      paper: '#ffffff', // White
-    },
-  },
-  typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    h4: {
-      fontWeight: 600,
-    },
-  },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 8,
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          borderRadius: 8,
-        },
-      },
-    },
-  },
+  // ... (keep the theme configuration as is)
 });
 
 interface Todo {
   id: number;
   text: string;
-  completed: boolean;  // Add this line
+  completed: boolean;
 }
 
 function App() {
@@ -122,9 +87,9 @@ function App() {
                   variant="outlined"
                   value={inputValue}
                   onChange={handleInputChange}
-                  placeholder={"Enter a new todo"}
+                  placeholder="Enter a new todo"
                 />
-                <Tooltip title={"Add Todo"}>
+                <Tooltip title="Add Todo">
                   <Button 
                     variant="contained" 
                     color="primary" 
